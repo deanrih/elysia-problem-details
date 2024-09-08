@@ -1,0 +1,48 @@
+{
+	"name": "@deanrih/elysia-problem-details",
+	"version": "0.0.1",
+	"module": "./src/main.ts",
+	"type": "module",
+	"license": "MIT",
+	"homepage": "https://deanrih.id/projects/self/elysia-problem-details",
+	"description": "An ElysiaJS middleware implementation for Problem Details (RFC 9457).",
+	"author": {
+		"name": "deanrih",
+		"url": "https://github.com/deanrih"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/deanrih/elysia-problem-details"
+	},
+	"bugs": {
+		"url": "https://github.com/deanrih/elysia-problem-details/issues"
+	},
+	"keywords": [
+		"RFC9457",
+		"Problem Details",
+		"Problem Details for HTTP APIs",
+		"Elysia",
+		"ElysiaJS",
+		"Elysia Plugin"
+	],
+	"exports": {
+		"default": "./dist/main.js",
+		"import": "./dist/main.js",
+		"node": "./dist/main.js",
+		"require": "./dist/main.js"
+	},
+	"scripts": {
+		"dev": "bun run --watch ./example/main.example.ts",
+		"test": "bun test",
+		"build": "rm -fr ./dist && tsc --project tsconfig.esm.json",
+		"release": "npm run build && npm run test && npm publish --access-public"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/bun": "latest",
+		"elysia": "^1.1.12"
+	},
+	"peerDependencies": {
+		"typescript": "^5.5.4"
+	}
+}

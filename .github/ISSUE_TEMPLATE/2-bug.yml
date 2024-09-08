@@ -1,0 +1,67 @@
+name: Bug Report
+description: Report an issue that is considered a bug in the actual code behaviour/functionality and should be fixed
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for submitting a bug report. Make sure you are using the latest version.
+
+  - type: textarea
+    attributes:
+      label: What versions are you using?
+      description: Provide at least the package/library and ElysiaJS version that is being used.
+      placeholder: |
+        - Package Version: `0.0.1`
+        - ElysiaJS Version: `1.1.12`
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: What are the stepts to replicate the bug?
+      description: Explain the bug, code snippet, step by step, actual and expected output.
+      placeholder: |
+        # Explanation
+
+        When being used as a particle accelerator web server, a portal to alternate universe sometimes opened for a about 410 milliseconds.
+
+        # Steps to replicate
+
+        1. Add/install package/library
+        2. Start particle accelerator
+        3. Start ElysiaJS webserver and use the problemDetails middleware
+        4. Access the end point that is purposely built to return an error
+        4. ???
+        5. Profit?
+
+        # Actual Result
+
+        A portal to alternate universe opened for 410 milliseconds
+
+        # Expected Result
+
+        Should not break any law of physics and destroy the fabric of spacetime continuum
+
+        # Code Snippet
+
+        ```ts
+        import { Elysia } from "elysia";
+        import { problemDetails } from "../src/main";
+
+        const app = new Elysia()
+          .use(problemDetails())
+          .get("/error", () => {
+            return new Error();
+          })
+          .listen(3000, (server) => {
+            console.log(`Listening @ ${server.hostname}:${server.port}`);
+          });
+        ````
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional information
